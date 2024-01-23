@@ -9,9 +9,9 @@ namespace WebApplication1.Controllers
         
 
 
-        public string Index(int a, int b)
+        public IActionResult Index()
         {
-            return $"{a} {b}";
+            return View();
         }
 
         public IActionResult Privacy()
