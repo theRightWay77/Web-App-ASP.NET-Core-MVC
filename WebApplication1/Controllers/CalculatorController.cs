@@ -6,10 +6,22 @@ namespace WebApplication1.Controllers
     public class CalculatorController : Controller
     {
         // GET: CalculatorController
-        public int Index(int a, int b)
+        public double Index(double a, double b, char op)
         {
-            return a + b;
+            
+            if (op == '\0') return a + b;
+            if (op == '+')
+                return a + b;
+            if (op == '-')
+                return a - b;
+            if (op == '*')
+                return a * b;
+           
+
+            return 0;
         }
+
+       
 
     }
 }
