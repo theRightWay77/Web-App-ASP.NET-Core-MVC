@@ -6,12 +6,23 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
-        
 
 
-        public string Index(int a, int b)
+
+        public string Index()
         {
-            return $"{a} {b}";
+            List<Product> products = new List<Product>() {
+            new Product(1, "prod1", 10),
+            new Product(2, "prod2", 100),
+            new Product(3, "prod3", 1000),
+            new Product(4, "prod4", 10000),
+            new Product(5, "prod5", 100000)
+             };
+          
+           
+
+            return string.Join("\n\n", products);
+
         }
 
         public IActionResult Privacy()
