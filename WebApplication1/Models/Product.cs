@@ -18,7 +18,7 @@ namespace WebApplication1.Models
 
         public override string ToString()
         {
-            return $"ID: {this.Id}\n{this.Name}\n{this.Сost} p.";
+            return $"ID: {this.Id}\n{this.Name}\n{this.Сost} p.\n{this.Description}";
         }
     }
 }
