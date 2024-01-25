@@ -13,16 +13,11 @@ namespace WebApplication1.Controllers
             productRepository = new ProductRepository();
         }
 
-        public string Index()
+        public IActionResult Index()
         {
-
-            
-
             List<Product> products = productRepository.GetProducts();
-
-
-            return string.Join("\n\n", products);
-
+            //return string.Join("\n\n", products);
+            return View(products);
         }
 
         public IActionResult Privacy()
