@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Data.Common;
 using System.Diagnostics;
 using WebApplication1.Models;
 
@@ -7,22 +6,12 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ProductRepository productRepository;
-        public HomeController()
+        
+
+
+        public string Index(int a, int b)
         {
-            productRepository = new ProductRepository();
-        }
-
-        public string Index()
-        {
-
-            
-
-            List<Product> products = productRepository.GetProducts();
-
-
-            return string.Join("\n\n", products);
-
+            return $"{a} {b}";
         }
 
         public IActionResult Privacy()
