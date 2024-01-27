@@ -13,12 +13,12 @@ namespace WebApplication1.Controllers
             productRepository = new ProductRepository();
         }
 
-        public string Index(int id)
+        public IActionResult Index(int id)
         {
             
             
             var myProduct = productRepository.TryGetById(id) ?? "Товара с такии id не существует";
-            return myProduct.ToString();
+            return View(myProduct);
 
         }
 
