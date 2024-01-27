@@ -22,5 +22,6 @@ namespace WebApplication1.Models
         {
             return $"ID: {this.Id}\n{this.Name}\n{this.Cost} p.\n{this.Description}";
         }
+
     }
 }

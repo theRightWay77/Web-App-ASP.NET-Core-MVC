@@ -12,6 +12,16 @@ namespace WebApplication1
             new Product("prod5", 100000, "discr5")
         };
 
+        static List<Product> Basket = new List<Product>();
+        public void AddToBasket(Product _product)
+        {
+            Basket.Add(_product);
+        }
+        public List<Product> GetBasket()
+        {
+            return Basket;
+        }
+
         public ProductRepository()
         {
 
@@ -19,7 +29,7 @@ namespace WebApplication1
 
         public List<Product> GetProducts() { return Products; }      
 
-        internal object TryGetById(int id)
+        internal Product TryGetById(int id)
         {
             return Products.FirstOrDefault(product => product.Id == id);
          
