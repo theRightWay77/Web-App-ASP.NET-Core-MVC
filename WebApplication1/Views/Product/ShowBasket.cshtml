@@ -1,7 +1,7 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@model List<Product>
+@model Basket
 
 <table class="table">
     <thead>
@@ -13,23 +13,18 @@
         </tr>
     </thead>
     <tbody>
-        @for (int i = 0; i < Model.Count; i++)
+        @for (int i = 0; i < Model.GetProductsCount(); i++)
         {
             <tr>
                 <th scope="row">@(i + 1)</th>
-                <td>@Model[i].Name</td>
+                <td>@Basket.products[i].Name</td>
                 <td>1</td>
-                <td>@Model[i].Cost</td>
+                <td>@Basket.products[i].Cost</td>
             </tr>
         }
 
+
     </tbody>
-
-</table>
-
-@*НУЖНО КОРЗИНУ СДЕЛАТЬ КЛАССОМ И ВСЕ ОТТУДА В ГОТОВОМ ВИДЕ БРАТЬ, А НЕ ВОТ ЭТО ВОТ ВСЕ*@
-@* 
-<table class="table">
     <thead>
         <tr>
             <th scope="col"></th>
@@ -43,12 +38,15 @@
         <tr>
             <th scope="row"></th>
             <td></td>
-            <td>?</td>
-            <td></td>
+
+            <td>@Model.GetProductsCount()</td>
+            <td>@Model.GetTotalCost()</td>
         </tr>
 
     </tbody>
 
-</table> *@
+</table>
+
+<a class="btn btn-dark" href="#">Оформить заказ</a>
 
 

@@ -31,22 +31,15 @@ namespace WebApplication1.Controllers
             if (isNull)
             {
                 if(!basket.IsEmpty())
-                return View(basket.GetBasket());
+                return View(basket);
                 else return View("EmptyBasket");
             }
 
             basket.Add(productRepository.TryGetById(id));
 
-            return View(basket.GetBasket());
+            return View(basket);
         }
-        //private bool IsBasketEmpty()
-        //{
-        //    if (productRepository.GetBasket().Count() == 0)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
+        
 
     }
 }

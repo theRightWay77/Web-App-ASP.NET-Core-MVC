@@ -1,10 +1,11 @@
-﻿using WebApplication1.Models;
+﻿using System.Collections.Generic;
+using WebApplication1.Models;
 
 namespace WebApplication1
 {
     public class Basket
     {
-        private static List<Product> products = new List<Product>();
+       public static readonly List<Product> products = new List<Product>();
 
         private int TotalCost { get; set; }
 
@@ -27,6 +28,11 @@ namespace WebApplication1
         public void Add(Product prod)
         {
             products.Add(prod);
+        }
+
+        public int GetProductsCount()
+        {
+            return products.Count;
         }
     }
 }
