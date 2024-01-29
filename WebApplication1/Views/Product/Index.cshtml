@@ -8,7 +8,10 @@
         <div class="card-body">
             <a><h5>@Model.Name</h5></a>
             <h5>@Model.Cost руб.</h5>
-            <a class="btn btn-dark" href="/Product/ShowBasket?id=@Model.Id&isNull=false">Добавить в корзину</a>
+            <div>
+                <a class="btn btn-outline-dark btn-in-concret-card" href="/Home/Index">Продолжить покупки</a>
+                <a class="btn btn-dark btn-in-concret-card" href="/Product/ShowBasket?id=@Model.Id&isNull=false">Добавить в корзину</a>
+            </div>
         </div>
     </div>
 }

@@ -24,4 +24,6 @@ body {
     text-align: center;
     
 }
-
+.btn-in-concret-card {
+    margin: var(--page-block-offset, 15px)0 0;
+}
