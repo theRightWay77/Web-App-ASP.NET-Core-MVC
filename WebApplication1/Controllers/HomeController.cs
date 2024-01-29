@@ -8,6 +8,7 @@ namespace WebApplication1.Controllers
     public class HomeController : Controller
     {
         private readonly ProductRepository productRepository;
+      
         public HomeController()
         {
             productRepository = new ProductRepository();

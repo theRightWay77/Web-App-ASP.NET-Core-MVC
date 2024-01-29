@@ -5,13 +5,15 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
+    
     public class ProductController : Controller
     {
         private readonly ProductRepository productRepository;
-
+        private readonly Basket basket;
         public ProductController()
         {
             productRepository = new ProductRepository();
+            basket = new Basket();
         }
 
         public IActionResult Index(int id)
@@ -28,23 +30,23 @@ namespace WebApplication1.Controllers
 
             if (isNull)
             {
-                if(!IsBasketEmpty())
-                return View(productRepository.GetBasket());
+                if(!basket.IsEmpty())
+                return View(basket.GetBasket());
                 else return View("EmptyBasket");
             }
 
-            productRepository.AddToBasket(productRepository.TryGetById(id));
+            basket.Add(productRepository.TryGetById(id));
 
-            return View(productRepository.GetBasket());
+            return View(basket.GetBasket());
         }
-        private bool IsBasketEmpty()
-        {
-            if (productRepository.GetBasket().Count() == 0)
-            {
-                return true;
-            }
-            return false;
-        }
+        //private bool IsBasketEmpty()
+        //{
+        //    if (productRepository.GetBasket().Count() == 0)
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
     }
 }
