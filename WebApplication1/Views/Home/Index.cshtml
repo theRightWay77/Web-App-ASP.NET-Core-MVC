@@ -8,11 +8,13 @@
     {
 
         <div class="col-3 card shadow">
-            <img class="card-img-top" src="https://i.pinimg.com/564x/ad/dc/37/addc37b47badabc06ec843434423cde9.jpg">
+            <div style= width: 18rem;">
+                <img class="card-img-top" src="@product.ImagePath">
+            </div>
             <div class="card-body">
                 <a style="color: black" href="/Product/Index/@product.Id"><h5>@product.Name</h5></a>
                 <h5>@product.Cost руб.</h5>
-                <a class="btn btn-dark" href="/Product/ShowBasket?id=@product.Id&isNull=false">Добавить в корзину</a>
+                <a class="btn btn-dark" href="/Basket/ShowBasket?id=@product.Id&isNull=false">Добавить в корзину</a>
             </div>
         </div>
 

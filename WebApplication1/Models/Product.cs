@@ -9,13 +9,15 @@ namespace WebApplication1.Models
         public string Name; // название товара. 
         public int Cost; // стоимость товара.
         public string Description;// подробное описание товара
+        public string ImagePath;
 
-        public Product(string name, int сost, string description)
+        public Product(string name, int сost, string description, string imagePath)
         {
             Id = IdCreator++;
             Name = name;
             Cost = сost;
             Description = description;
+            ImagePath = imagePath;
         }
 
         public override string ToString()

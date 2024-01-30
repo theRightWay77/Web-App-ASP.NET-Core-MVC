@@ -9,11 +9,11 @@ namespace WebApplication1.Controllers
     public class ProductController : Controller
     {
         private readonly ProductRepository productRepository;
-        private readonly Basket basket;
+       // private readonly Basket basket;
         public ProductController()
         {
             productRepository = new ProductRepository();
-            basket = new Basket();
+            //basket = new Basket();
         }
 
         public IActionResult Index(int id)
@@ -25,20 +25,20 @@ namespace WebApplication1.Controllers
 
         }
 
-        public IActionResult ShowBasket(int id, bool isNull)
-        {         
+        //public IActionResult ShowBasket(int id, bool isNull)
+        //{         
 
-            if (isNull)
-            {
-                if(!basket.IsEmpty())
-                return View(basket);
-                else return View("EmptyBasket");
-            }
+        //    if (isNull)
+        //    {
+        //        if(!basket.IsEmpty())
+        //        return View(basket);
+        //        else return View("EmptyBasket");
+        //    }
 
-            basket.Add(productRepository.TryGetById(id));
+        //    basket.Add(productRepository.TryGetById(id));
 
-            return View(basket);
-        }
+        //    return View(basket);
+        //}
         
 
     }

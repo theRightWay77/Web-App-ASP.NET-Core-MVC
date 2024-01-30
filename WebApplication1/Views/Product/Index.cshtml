@@ -1,16 +1,15 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@model Product
+﻿@model Product
 @{
-    <div class="col-3 card shadow">
-        <img class="card-img-top" src="https://i.pinimg.com/564x/ad/dc/37/addc37b47badabc06ec843434423cde9.jpg">
-        <div class="card-body">
+    <div class="row">
+        <div class="col-9 card shadow">
+            <img class="card-img-top" src="@Model.ImagePath">
+        </div>
+        <div class="col-3">
             <a><h5>@Model.Name</h5></a>
             <h5>@Model.Cost руб.</h5>
             <div>
                 <a class="btn btn-outline-dark btn-in-concret-card" href="/Home/Index">Продолжить покупки</a>
-                <a class="btn btn-dark btn-in-concret-card" href="/Product/ShowBasket?id=@Model.Id&isNull=false">Добавить в корзину</a>
+                <a class="btn btn-dark btn-in-concret-card" href="/Basket/ShowBasket?id=@Model.Id&isNull=false">Добавить в корзину</a>
             </div>
         </div>
     </div>
