@@ -17,9 +17,9 @@
         {
             <tr>
                 <th scope="row">@(i + 1)</th>
-                <td>@Basket.products[i].Name</td>
+                <td>@Basket.basketItems[i].Product.Name</td>
                 <td>1</td>
-                <td>@Basket.products[i].Cost</td>
+                <td>@Basket.basketItems[i].Cost</td>
             </tr>
         }
 
@@ -40,7 +40,7 @@
             <td></td>
 
             <td>@Model.GetProductsCount()</td>
-            <td>@Model.GetTotalCost()</td>
+            <td>@Model.TotalCost</td>
         </tr>
 
     </tbody>
