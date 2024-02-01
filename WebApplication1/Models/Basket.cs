@@ -2,35 +2,36 @@
 
 namespace WebApplication1.Models
 {
-    public class Basket
+    public class Basket// корзина товаров, содержит список элементов класса BasketItem
     {
         public Guid Id { get; set; }
         public string UserId { get; set; }
-        public static readonly List<BasketItem> basketItems = new List<BasketItem>();
+        //public static List<BasketItem> BasketItems = new List<BasketItem>();
+        public List<BasketItem> BasketItems { get; set; }
 
         public decimal TotalCost 
         { 
             get
-            { return basketItems.Sum(x => x.Cost); }           
+            { return BasketItems.Sum(x => x.Cost); }           
         }
 
 
-        public List<Product> GetBasket() { return basketItems; }
+      //  public List<BasketItem> GetBasket() { return BasketItems; }
 
-        public bool IsEmpty()
-        {
-            if (basketItems.Count == 0) return true;
-            return false;
-        }
+        //public bool IsEmpty()
+        //{
+        //    if (BasketItems.Count == 0) return true;
+        //    return false;
+        //}
 
-        public void Add(Product prod)
-        {
-            basketItems.Add(prod);
-        }
+        //public void Add(BasketItem prod)
+        //{
+        //    BasketItems.Add(prod);
+        //}
 
         public int GetProductsCount()
         {
-            return basketItems.Count;
+            return BasketItems.Count;
         }
     }
 }

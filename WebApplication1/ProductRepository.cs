@@ -2,7 +2,7 @@
 
 namespace WebApplication1
 {
-    public class ProductRepository
+    public class ProductRepository // список всех голых товаров
     {
         static List<Product> Products = new List<Product>() {
             new Product("prod1", 10, "discr1", "/images/img0.jpg"),
@@ -12,16 +12,6 @@ namespace WebApplication1
             new Product("prod5", 100000, "discr5", "/images/img4.jpg")
         };
 
-       // static List<Product> Basket = new List<Product>();
-        //public void AddToBasket(Product _product)
-        //{
-        //    Basket.Add(_product);
-        //}
-        //public List<Product> GetBasket()
-        //{
-        //    return Basket;
-        //}
-
         public ProductRepository()
         {
 
@@ -29,7 +19,7 @@ namespace WebApplication1
 
         public List<Product> GetProducts() { return Products; }      
 
-        internal Product TryGetById(int id)
+        internal Product TryGetById(int id, string userId)
         {
             return Products.FirstOrDefault(product => product.Id == id);
          

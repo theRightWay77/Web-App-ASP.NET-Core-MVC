@@ -15,25 +15,37 @@ namespace WebApplication1.Controllers
             productRepository = new ProductRepository();
         }
 
-        public ActionResult Index()
+        public IActionResult Index() //показывает корзину текущего пользователя, если в ней что-то есть, если нет, пишет, что корзина пустая 
         {
             Basket basket = BasketsRepository.TryGetByUserId(Constants.UserId);
-            return View();
+            return View(basket);
         }
 
-        public IActionResult ShowBasket(int id, bool isNull)
+        //public IActionResult ShowBasket(int id)
+        //{
+
+        //    if (isNull)
+        //    {
+        //        if (!basket.IsEmpty())
+        //            return View(basket);
+        //        else return View("EmptyBasket");
+        //    }
+
+        //    //basket = (BasketsRepository.TryGetByUserId(Constants.UserId));
+        //    basket.Add(BasketsRepository.TryGetByUserId(Constants.UserId));
+
+        //    return View(basket);
+        //}
+
+        public IActionResult Add(int productId)
         {
 
-            if (isNull)
-            {
-                if (!basket.IsEmpty())
-                    return View(basket);
-                else return View("EmptyBasket");
-            }
 
-            basket.Add(productRepository.TryGetById(id));
-
-            return View(basket);
+            // var myProduct = (object)productRepository.TryGetById(productId) ?? "Товара с такии id не существует";
+            var myProduct = productRepository.TryGetById(productId, Constants.UserId);
+            BasketsRepository.Add(myProduct, "UserId");
+            //return View(myProduct);
+            return RedirectToAction("Index");
         }
     }
 }

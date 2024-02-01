@@ -1,8 +1,12 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@model Basket
+﻿@model Basket
 
+@if(Model == null)
+{
+    <h3 class="Empty-Basket">В вашей корзине еще нет товаров.</h3>
+}
+else
+{
+    <h3 class="Empty-Basket">Хороших покупок.</h3>
 <table class="table">
     <thead>
         <tr>
@@ -13,13 +17,14 @@
         </tr>
     </thead>
     <tbody>
-        @for (int i = 0; i < Model.GetProductsCount(); i++)
+      @*  @for (int i = 0; i < Model.GetProductsCount(); i++)*@
+        @foreach (var item in Model.BasketItems)
         {
             <tr>
-                <th scope="row">@(i + 1)</th>
-                <td>@Model.BasketItems[i].Product.Name</td>
-                <td>1</td>
-                <td>@Model.BasketItems[i].Cost</td>
+                <th scope="row">@*@(i + 1)*@</th>
+                <td>@item.Product.Name</td>
+                <td>@item.Amount</td>
+                <td>@item.Cost</td>
             </tr>
         }
 
@@ -49,4 +54,5 @@
 
 <a class="btn btn-dark" href="#">Оформить заказ</a>
 
+}
 

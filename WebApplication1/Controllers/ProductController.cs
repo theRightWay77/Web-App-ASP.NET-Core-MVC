@@ -9,37 +9,18 @@ namespace WebApplication1.Controllers
     public class ProductController : Controller
     {
         private readonly ProductRepository productRepository;
-       // private readonly Basket basket;
+
         public ProductController()
         {
             productRepository = new ProductRepository();
-            //basket = new Basket();
         }
 
-        public IActionResult Index(int id)
+        public IActionResult Index(int id) // показывает страницу с конкретным товаром
         {
-
-
-            var myProduct = (object)productRepository.TryGetById(id) ?? "Товара с такии id не существует";
+           // var myProduct = (object)productRepository.TryGetById(id) ?? "Товара с такии id не существует";
+            var myProduct = productRepository.TryGetById(id, "UserId");
             return View(myProduct);
-
         }
-
-        //public IActionResult ShowBasket(int id, bool isNull)
-        //{         
-
-        //    if (isNull)
-        //    {
-        //        if(!basket.IsEmpty())
-        //        return View(basket);
-        //        else return View("EmptyBasket");
-        //    }
-
-        //    basket.Add(productRepository.TryGetById(id));
-
-        //    return View(basket);
-        //}
-        
 
     }
 }
