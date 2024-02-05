@@ -19,7 +19,7 @@ namespace WebApplication1
 
         public List<Product> GetProducts() { return Products; }      
 
-        internal Product TryGetById(int id, string userId)
+        internal Product TryGetById(int id)
         {
             return Products.FirstOrDefault(product => product.Id == id);
          
