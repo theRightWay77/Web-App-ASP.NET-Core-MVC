@@ -10,9 +10,9 @@ namespace WebApplication1.Controllers
     {
         private readonly ProductRepository productRepository;
 
-        public ProductController()
+        public ProductController(ProductRepository productRepository)
         {
-            productRepository = new ProductRepository();
+            this.productRepository =productRepository;
         }
 
         public IActionResult Index(int id) // показывает страницу с конкретным товаром

@@ -7,17 +7,19 @@ namespace WebApplication1.Controllers
     public class BasketController : Controller
     {
         private readonly ProductRepository productRepository;
+        private readonly BasketsRepository basketsRepository;
         private readonly Basket basket;
 
-        public BasketController()
+        public BasketController(ProductRepository productRepository, BasketsRepository basketsRepository)
         {
             basket = new Basket();
-            productRepository = new ProductRepository();
+            this.productRepository = productRepository;
+            this.basketsRepository = basketsRepository;
         }
 
         public IActionResult Index() //показывает корзину текущего пользователя, если в ней что-то есть, если нет, пишет, что корзина пустая 
         {
-            Basket basket = BasketsRepository.TryGetByUserId(Constants.UserId);
+            Basket basket = basketsRepository.TryGetByUserId(Constants.UserId);
             return View(basket);
         }
 
@@ -43,7 +45,7 @@ namespace WebApplication1.Controllers
 
             // var myProduct = (object)productRepository.TryGetById(productId) ?? "Товара с такии id не существует";
             var myProduct = productRepository.TryGetById(productId, Constants.UserId);
-            BasketsRepository.Add(myProduct, "UserId");
+            basketsRepository.Add(myProduct, "UserId");
             //return View(myProduct);
             return RedirectToAction("Index");
         }

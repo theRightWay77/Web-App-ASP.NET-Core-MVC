@@ -7,6 +7,10 @@ namespace WebApplication1
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            //  builder.Services.AddTransient<>();
+            builder.Services.AddSingleton<Constants>();
+            builder.Services.AddSingleton<ProductRepository>();
+            builder.Services.AddSingleton<BasketsRepository>();
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
