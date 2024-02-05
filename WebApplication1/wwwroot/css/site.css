@@ -1,18 +1,33 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+.Empty-Basket {
+    position: absolute;
+    width: 85%;
+    top: 50%;
+    text-align: center;
+}
+
+.btn-in-concret-card {
+    margin: var(--page-block-offset, 15px)0 0;
+}
+
+.card-img-top {
+    margin: 10px 0 0 0 ;
 }

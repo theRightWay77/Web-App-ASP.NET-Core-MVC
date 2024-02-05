@@ -8,32 +8,19 @@ namespace WebApplication1.Controllers
     public class HomeController : Controller
     {
         private readonly ProductRepository productRepository;
+      
         public HomeController()
         {
             productRepository = new ProductRepository();
         }
 
-        public string Index()
+        public IActionResult Index() //выводит сетку всех товаров на главной странице
         {
-
-            
-
             List<Product> products = productRepository.GetProducts();
-
-
-            return string.Join("\n\n", products);
-
+            //return string.Join("\n\n", products);
+            return View(products);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        
     }
 }

@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Basket
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Название</th>
+            <th scope="col">Количество</th>
+            <th scope="col">Стоимость</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.GetProductsCount(); i++)
+        {
+            <tr>
+                <th scope="row">@(i + 1)</th>
+                <td>@Model.BasketItems[i].Product.Name</td>
+                <td>1</td>
+                <td>@Model.BasketItems[i].Cost</td>
+            </tr>
+        }
+
+
+    </tbody>
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">Количество</th>
+            <th scope="col">Итого</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <th scope="row"></th>
+            <td></td>
+
+            <td>@Model.GetProductsCount()</td>
+            <td>@Model.TotalCost</td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+<a class="btn btn-dark" href="#">Оформить заказ</a>
+
+

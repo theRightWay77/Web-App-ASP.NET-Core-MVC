@@ -5,21 +5,21 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
+    
     public class ProductController : Controller
     {
         private readonly ProductRepository productRepository;
+
         public ProductController()
         {
             productRepository = new ProductRepository();
         }
 
-        public string Index(int id)
+        public IActionResult Index(int id) // показывает страницу с конкретным товаром
         {
-            
-            
-            var myProduct = productRepository.TryGetById(id) ?? "Товара с такии id не существует";
-            return myProduct.ToString();
-
+           // var myProduct = (object)productRepository.TryGetById(id) ?? "Товара с такии id не существует";
+            var myProduct = productRepository.TryGetById(id, "UserId");
+            return View(myProduct);
         }
 
     }
