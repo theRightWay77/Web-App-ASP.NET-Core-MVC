@@ -10,7 +10,7 @@ namespace WebApplication1
             //  builder.Services.AddTransient<>();
             builder.Services.AddSingleton<Constants>();
             builder.Services.AddSingleton<IProductsRepository, ProductRepository>();
-            builder.Services.AddSingleton<BasketsRepository>();
+            builder.Services.AddSingleton<IBasketsRepository, BasketsRepository>();
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();

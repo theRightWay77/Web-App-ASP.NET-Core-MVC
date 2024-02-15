@@ -2,7 +2,7 @@
 
 namespace WebApplication1
 {
-    public class BasketsRepository //список всех корзин всех пользователей, тут создается новая корзина, если у пользователя ее не было
+    public class BasketsRepository : IBasketsRepository//список всех корзин всех пользователей, тут создается новая корзина, если у пользователя ее не было
     {
         private static List<Basket> baskets = new List<Basket>();
 
