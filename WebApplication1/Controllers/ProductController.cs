@@ -8,17 +8,17 @@ namespace WebApplication1.Controllers
     
     public class ProductController : Controller
     {
-        private readonly ProductRepository productRepository;
+        private readonly IProductsRepository productRepository;
 
-        public ProductController(ProductRepository productRepository)
+        public ProductController(IProductsRepository productRepository)
         {
-            this.productRepository =productRepository;
+            this.productRepository = productRepository;
         }
 
         public IActionResult Index(int id) // показывает страницу с конкретным товаром
         {
            // var myProduct = (object)productRepository.TryGetById(id) ?? "Товара с такии id не существует";
-            var myProduct = productRepository.TryGetById(id, "UserId");
+            var myProduct = productRepository.TryGetById(id);
             return View(myProduct);
         }
 

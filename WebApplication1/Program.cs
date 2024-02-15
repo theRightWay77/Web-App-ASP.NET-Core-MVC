@@ -9,7 +9,7 @@ namespace WebApplication1
             // Add services to the container.
             //  builder.Services.AddTransient<>();
             builder.Services.AddSingleton<Constants>();
-            builder.Services.AddSingleton<ProductRepository>();
+            builder.Services.AddSingleton<IProductsRepository, ProductRepository>();
             builder.Services.AddSingleton<BasketsRepository>();
             builder.Services.AddControllersWithViews();
 
