@@ -33,5 +33,18 @@ namespace WebApplication1.Controllers
             basketsRepository.Add(myProduct, "UserId");
             return RedirectToAction("Index");
         }
+
+        public IActionResult Remove(int productId)
+        {
+            var myProduct = productRepository.TryGetById(productId);
+            basketsRepository.Remove(myProduct, "UserId");
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Clear()
+        {
+            basketsRepository.Clear("UserId");
+            return RedirectToAction("Index");
+        }
     }
 }

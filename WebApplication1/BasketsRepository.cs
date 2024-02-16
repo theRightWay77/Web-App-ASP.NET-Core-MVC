@@ -51,5 +51,27 @@ namespace WebApplication1
                 }
             }
         }
+
+        public void Remove(Product myProduct, string myUserId) 
+        {
+            var myBasket = TryGetByUserId(myUserId); // среди всех корзин выбрали мою
+            var amountBasketItem = myBasket.BasketItems.FirstOrDefault(x => x.Product.Id == myProduct.Id).Amount; // посмотрели сколько единиц конкретного товара там уже есть
+            if (amountBasketItem == 1) // если товар один, надо удалить картовку из корзины
+            {
+                var myItem = myBasket.BasketItems.FirstOrDefault(x => x.Product.Id == myProduct.Id); // нашли нужную карточку
+                myBasket.BasketItems.Remove(myItem); // удалили из корзины
+            }
+            else
+            {
+                var myItem = myBasket.BasketItems.FirstOrDefault(x => x.Product.Id == myProduct.Id); // нашли нужную карточку
+                myItem.Amount -= 1;
+            }
+        }
+
+        public void Clear(string myUserId)
+        {
+            var myBasket = TryGetByUserId(myUserId); // среди всех корзин выбрали мою
+            myBasket.BasketItems.Clear();
+        }
     }
 }

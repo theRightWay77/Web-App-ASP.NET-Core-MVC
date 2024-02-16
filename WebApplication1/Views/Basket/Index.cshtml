@@ -7,6 +7,7 @@
 else
 {
     <h3 class="Empty-Basket">Хороших покупок.</h3>
+    <a type="button" class="btn btn-outline-danger" href="/Basket/Clear">Очистить корзину</a>
 <table class="table">
     <thead>
         <tr>
@@ -14,6 +15,7 @@ else
             <th scope="col">Название</th>
             <th scope="col">Количество</th>
             <th scope="col">Стоимость</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +27,12 @@ else
                 <td>@item.Product.Name</td>
                 <td>@item.Amount</td>
                 <td>@item.Cost</td>
+                <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a type="button" class="btn btn-outline-secondary" href="/Basket/Add?productId=@item.Product.Id">+1</a>
+                            <a type="button" class="btn btn-outline-secondary" href="/Basket/Remove?productId=@item.Product.Id">-1</a>
+                        </div>
+                </td>
             </tr>
         }
 
@@ -36,6 +44,7 @@ else
             <th scope="col"></th>
             <th scope="col">Количество</th>
             <th scope="col">Итого</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -43,9 +52,9 @@ else
         <tr>
             <th scope="row"></th>
             <td></td>
-
             <td>@Model.GetProductsCount()</td>
             <td>@Model.TotalCost</td>
+            <td></td>
         </tr>
 
     </tbody>

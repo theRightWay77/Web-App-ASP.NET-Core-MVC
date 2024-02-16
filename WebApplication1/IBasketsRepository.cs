@@ -12,6 +12,8 @@ namespace WebApplication1
         }
 
         public void Add(Product myProduct, string myUserId) { }
+        public void Remove(Product myProduct, string myUserId) { }
+        public void Clear(string myUserId) { }
 
     }
 }
